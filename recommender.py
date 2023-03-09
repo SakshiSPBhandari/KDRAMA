@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pickle
 
-st.set_page_config(layout='wide')
+# st.set_page_config(layout='wide')
 
 df = pickle.load(open("df_new.pkl", 'rb'));
 similarity = pickle.load(open("similarity.pkl", 'rb'));
@@ -33,6 +33,7 @@ st.markdown("""
 .styling{
     font-style: bold;
     text-decoration: underline;
+    text-align:center;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -41,36 +42,36 @@ st.markdown('<p class="big-font">Select the Kdrama From Below</p>', unsafe_allow
 
 name = st.selectbox("", df['Title'])
 
-if st.button("Show Recommendation"):
+if st.button('Recommend'):
     title, story = recommend(name)
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with st.container():
-        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 32px; text-transform: capitalize;">' + \
+        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 22px; text-transform: capitalize;">' + \
                     story[0] + '</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown(story[0], unsafe_allow_html=True)
 
     with st.container():
-        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 32px;text-transform: capitalize;">' + \
+        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 22px;text-transform: capitalize;">' + \
                     title[1] + '</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown(story[1], unsafe_allow_html=True)
 
     with st.container():
-        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 32px;text-transform: capitalize;">' + \
+        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 22px;text-transform: capitalize;">' + \
                     title[2] + '</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown(story[2], unsafe_allow_html=True)
 
     with st.container():
-        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 32px;text-transform: capitalize;">' + \
+        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 22px;text-transform: capitalize;">' + \
                     title[3] + '</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown(story[3], unsafe_allow_html=True)
 
     with st.container():
-        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 32px;text-transform: capitalize;">' + \
+        new_title = '<p class="styling" style="font-family:sans-serif; color:#341641; font-size: 22px;text-transform: capitalize;">' + \
                     title[4] + '</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown(story[4], unsafe_allow_html=True)
